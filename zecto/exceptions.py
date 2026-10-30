@@ -51,7 +51,7 @@ class APIConnectionError(ZectoError):
 
     def __str__(self) -> str:
         header = _c("Connection Error", _BOLD, _RED)
-        body = f"{self.message}\nCould not reach the Zecto API. Check your network or base_url."
+        body = f"{self.message}\nCould not reach the Zecto API. Check your network connection."
         return f"\n\n{header}\n{body}\n"
 
 

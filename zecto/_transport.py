@@ -6,7 +6,7 @@ import httpx
 
 from .exceptions import APIConnectionError, error_for_status
 
-DEFAULT_BASE_URL = "https://api.zecto.io/whatsapp"
+BASE_URL = "https://api.zecto.io/whatsapp"
 DEFAULT_TIMEOUT = 30.0
 
 
@@ -60,11 +60,10 @@ class SyncTransport:
     def __init__(
         self,
         api_key: str,
-        base_url: str = DEFAULT_BASE_URL,
         timeout: float = DEFAULT_TIMEOUT,
     ) -> None:
         self._client = httpx.Client(
-            base_url=base_url.rstrip("/"),
+            base_url=BASE_URL,
             headers=_headers(api_key),
             timeout=timeout,
         )
@@ -90,11 +89,10 @@ class AsyncTransport:
     def __init__(
         self,
         api_key: str,
-        base_url: str = DEFAULT_BASE_URL,
         timeout: float = DEFAULT_TIMEOUT,
     ) -> None:
         self._client = httpx.AsyncClient(
-            base_url=base_url.rstrip("/"),
+            base_url=BASE_URL,
             headers=_headers(api_key),
             timeout=timeout,
         )
